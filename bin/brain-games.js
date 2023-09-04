@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import {defaultHi} from '../src/cli.js';
+import { defaultHi } from '../src/cli.js';
 
 defaultHi();
