@@ -56,8 +56,8 @@ function brainGcd() {
   const gameCondition = 'Find the greatest common divisor of given numbers.';
   const name = greeting(gameCondition);
   for (let i = 0; i < roundsAmount; i += 1) {
-    let randomNumber1 = _.random(2, 15);
-    let randomNumber2 = _.random(10, 50);
+    let randomNumber1 = _.random(1, 14);
+    let randomNumber2 = _.random(1, 20);
     let correctAnswer;
 
     const answer = getAnswer(`${randomNumber1} ${randomNumber2}`);
@@ -73,7 +73,6 @@ function brainGcd() {
         correctAnswer = randomNumber1 + randomNumber2;
       }
     }
-    console.log(correctAnswer);
 
     if (answer === correctAnswer.toString()) {
       console.log('Correct');
