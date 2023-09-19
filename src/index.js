@@ -52,4 +52,36 @@ function brainCalc() {
   return console.log(`Congratulations, ${name}!`);
 }
 
-export { brainEven, brainCalc };
+function brainGcd() {
+  const gameCondition = 'Find the greatest common divisor of given numbers.';
+  const name = greeting(gameCondition);
+  for (let i = 0; i < roundsAmount; i += 1) {
+    let randomNumber1 = _.random(2, 15);
+    let randomNumber2 = _.random(10, 50);
+    let correctAnswer;
+
+    const answer = getAnswer(`${randomNumber1} ${randomNumber2}`);
+    if (randomNumber1 === randomNumber2) {
+      correctAnswer = randomNumber1;
+    } else {
+      while (randomNumber1 !== 0 && randomNumber2 !== 0) {
+        if (randomNumber1 > randomNumber2) {
+          randomNumber1 %= randomNumber2;
+        } else {
+          randomNumber2 %= randomNumber1;
+        }
+        correctAnswer = randomNumber1 + randomNumber2;
+      }
+    }
+    console.log(correctAnswer);
+
+    if (answer === correctAnswer.toString()) {
+      console.log('Correct');
+    } else {
+      return console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\n Let's try again, ${name}!`);
+    }
+  }
+  return console.log(`Congratulations, ${name}!`);
+}
+
+export { brainEven, brainCalc, brainGcd };
