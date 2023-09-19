@@ -8,3 +8,6 @@ Brain-even video:
 
 Brain-calc video:
 <a href="https://asciinema.org/a/ofBYjHQ2LP0pb2g3m4HUCOBmu" target="_blank"><img src="https://asciinema.org/a/ofBYjHQ2LP0pb2g3m4HUCOBmu.svg" /></a>
+
+Brain-gcd video:
+<a href="https://asciinema.org/a/X7hdX8LaCyELyOev8ZXVzQSMd" target="_blank"><img src="https://asciinema.org/a/X7hdX8LaCyELyOev8ZXVzQSMd.svg" /></a>
