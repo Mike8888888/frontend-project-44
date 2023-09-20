@@ -83,4 +83,34 @@ function brainGcd() {
   return console.log(`Congratulations, ${name}!`);
 }
 
-export { brainEven, brainCalc, brainGcd };
+function brainProgression() {
+  const gameCondition = 'What number is missing in the progression?';
+  const name = greeting(gameCondition);
+  const arrLenght = 10;
+
+  for (let i = 0; i < roundsAmount; i += 1) {
+    const startNumber = _.random(2, 20);
+    const numberArrProgression = [startNumber];
+    const progressionStep = _.random(2, 5);
+
+    for (let j = 0; j < arrLenght; j += 1) {
+      numberArrProgression.push(numberArrProgression[j] + progressionStep);
+    }
+
+    const hidedNumberIndex = _.random(arrLenght - 1);
+    const hidedNumber = numberArrProgression[hidedNumberIndex];
+    numberArrProgression[hidedNumberIndex] = '..';
+    const answer = getAnswer(numberArrProgression.join(' '));
+
+    if (answer === hidedNumber.toString()) {
+      console.log('Correct');
+    } else {
+      return console.log(`"${answer}" is wrong answer ;(. Correct answer was "${hidedNumber}".\n Let's try again, ${name}!`);
+    }
+  }
+  return console.log(`Congratulations, ${name}!`);
+}
+
+export {
+  brainEven, brainCalc, brainGcd, brainProgression,
+};
