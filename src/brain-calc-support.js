@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-function getRandomExpressionAnswer() {
+export default () => {
   const firstNumber = _.random(20);
   const secondNumber = _.random(20);
   const summVariant = firstNumber + secondNumber;
@@ -22,6 +22,4 @@ function getRandomExpressionAnswer() {
   const expression = `${firstNumber} ${operatorType} ${secondNumber}`;
   const result = [randomExpression, expression];
   return result;
-}
-
-export { getRandomExpressionAnswer };
+};

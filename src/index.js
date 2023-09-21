@@ -1,7 +1,7 @@
 /* eslint-disable spaced-comment */
 import readlineSync from 'readline-sync';
 import _ from 'lodash';
-import { getRandomExpressionAnswer } from './brain-calc-support.js';
+import getRandomExpressionAnswer from './brain-calc-support.js';
 
 const roundsAmount = 3;
 
