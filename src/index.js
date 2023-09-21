@@ -111,6 +111,39 @@ function brainProgression() {
   return console.log(`Congratulations, ${name}!`);
 }
 
+function getPrimeArray() {
+  const primeArray = [];
+
+  for (let i = 2; i < 100; i += 1) {
+    for (let j = 2; j <= i; j += 1) {
+      if (i === j) {
+        primeArray.push(i);
+      } else if (i % j === 0) {
+        break;
+      }
+    }
+  }
+  return primeArray;
+}
+
+function brainPrime() {
+  const gameCondition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const name = greeting(gameCondition);
+  const primeArray = getPrimeArray();
+  for (let i = 0; i < roundsAmount; i += 1) {
+    const randomNumber = _.random(1, 100);
+    const answer = getAnswer(randomNumber);
+    const isPrime = primeArray.find((Element) => Element % randomNumber === 0) ? 'yes' : 'no';
+
+    if (answer === isPrime) {
+      console.log('Correct');
+    } else {
+      return console.log(`"${answer}" is wrong answer ;(. Correct answer was "${isPrime}".\n Let's try again, ${name}!`);
+    }
+  }
+  return console.log(`Congratulations, ${name}!`);
+}
+
 export {
-  brainEven, brainCalc, brainGcd, brainProgression,
+  brainEven, brainCalc, brainGcd, brainProgression, brainPrime,
 };
