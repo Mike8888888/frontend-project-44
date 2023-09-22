@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { brainGcd } from '../src/index.js';
+import { startBrainGcd } from '../src/index.js';
 
-brainGcd();
+startBrainGcd();
