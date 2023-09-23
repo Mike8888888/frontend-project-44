@@ -1,6 +1,9 @@
 import _ from 'lodash';
+import runGame from '../index.js';
 
-export default () => {
+const description = 'What is the result of the expression?';
+
+function getRaundData() {
   const firstNumber = _.random(20);
   const secondNumber = _.random(20);
   const summVariant = firstNumber + secondNumber;
@@ -8,7 +11,7 @@ export default () => {
   const subtractVariant = firstNumber - secondNumber;
   const expressionsArray = [summVariant, multVariant, subtractVariant];
   const randomNumberForExpressionType = _.random(0, 2);
-  const randomExpression = expressionsArray.at(randomNumberForExpressionType);
+  const correctAnswer = expressionsArray.at(randomNumberForExpressionType);
 
   let operatorType;
   if (randomNumberForExpressionType === 0) {
@@ -19,7 +22,11 @@ export default () => {
     operatorType = '-';
   }
 
-  const expression = `${firstNumber} ${operatorType} ${secondNumber}`;
-  const result = [randomExpression, expression];
+  const question = `${firstNumber} ${operatorType} ${secondNumber}`;
+  const result = [question, correctAnswer];
   return result;
+}
+
+export default () => {
+  runGame(description, getRaundData);
 };
