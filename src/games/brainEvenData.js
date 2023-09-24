@@ -1,11 +1,12 @@
-import _ from 'lodash';
 import runGame from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
+import isEven from '../isEven.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function getRaundData() {
-  const randomNumber = _.random(10);
-  const correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
+  const randomNumber = getRandomNumber(0, 10);
+  const correctAnswer = isEven(randomNumber);
   const question = randomNumber;
   const result = [question, correctAnswer];
 

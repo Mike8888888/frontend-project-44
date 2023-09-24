@@ -1,12 +1,12 @@
-import _ from 'lodash';
 import runGame from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'What number is missing in the progression?';
 
 function getNumberArrProgression(arrLenght) {
-  const startNumber = _.random(2, 20);
+  const startNumber = getRandomNumber(2, 20);
   const numberArrProgression = [startNumber];
-  const progressionStep = _.random(2, 5);
+  const progressionStep = getRandomNumber(2, 5);
 
   for (let i = 0; i < arrLenght; i += 1) {
     numberArrProgression.push(numberArrProgression[i] + progressionStep);
@@ -15,7 +15,7 @@ function getNumberArrProgression(arrLenght) {
 }
 
 function getHidedNumber(arrLenght) {
-  return _.random(arrLenght - 1);
+  return getRandomNumber(1, arrLenght - 1);
 }
 
 function getRaundData() {

@@ -1,5 +1,5 @@
-import _ from 'lodash';
 import runGame from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -23,8 +23,8 @@ function getGcdAnswer(number1, number2) {
 }
 
 function getRaundData() {
-  const randomNumber1 = _.random(1, 14);
-  const randomNumber2 = _.random(1, 20);
+  const randomNumber1 = getRandomNumber(1, 14);
+  const randomNumber2 = getRandomNumber(1, 20);
   const question = `${randomNumber1} ${randomNumber2}`;
   const correctAnswer = getGcdAnswer(randomNumber1, randomNumber2);
   const result = [question, correctAnswer];

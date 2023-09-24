@@ -1,28 +1,26 @@
-import _ from 'lodash';
 import runGame from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function getPrimeArray() {
-  const primeArray = [];
+function isPrime(number) {
+  if (number < 2) {
+    return 'no';
+  }
 
-  for (let i = 2; i < 100; i += 1) {
-    for (let j = 2; j <= i; j += 1) {
-      if (i === j) {
-        primeArray.push(i);
-      } else if (i % j === 0) {
-        break;
-      }
+  for (let i = 2; i <= number / 2; i += 1) {
+    if (number % i === 0) {
+      return 'no';
     }
   }
-  return primeArray;
+
+  return 'yes';
 }
 
 function getRaundData() {
-  const primeArray = getPrimeArray();
-  const randomNumber = _.random(1, 100);
+  const randomNumber = getRandomNumber(1, 100);
   const question = randomNumber;
-  const correctAnswer = primeArray.find((Element) => Element % randomNumber === 0) ? 'yes' : 'no';
+  const correctAnswer = isPrime(randomNumber);
   const result = [question, correctAnswer];
   return result;
 }

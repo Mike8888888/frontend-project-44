@@ -1,29 +1,18 @@
-import _ from 'lodash';
 import runGame from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
+import getCalculationResult from '../getCalculationResult.js';
 
 const description = 'What is the result of the expression?';
 
 function getRaundData() {
-  const firstNumber = _.random(20);
-  const secondNumber = _.random(20);
-  const summVariant = firstNumber + secondNumber;
-  const multVariant = firstNumber * secondNumber;
-  const subtractVariant = firstNumber - secondNumber;
-  const expressionsArray = [summVariant, multVariant, subtractVariant];
-  const randomNumberForExpressionType = _.random(0, 2);
-  const correctAnswer = expressionsArray.at(randomNumberForExpressionType);
-
-  let operatorType;
-  if (randomNumberForExpressionType === 0) {
-    operatorType = '+';
-  } else if (randomNumberForExpressionType === 1) {
-    operatorType = '*';
-  } else {
-    operatorType = '-';
-  }
-
-  const question = `${firstNumber} ${operatorType} ${secondNumber}`;
+  const firstNumber = getRandomNumber(0, 20);
+  const secondNumber = getRandomNumber(0, 20);
+  const operatorArray = ['+', '-', '*'];
+  const randomOperator = operatorArray.at(getRandomNumber(0, 2));
+  const correctAnswer = getCalculationResult(firstNumber, secondNumber, randomOperator);
+  const question = `${firstNumber} ${randomOperator} ${secondNumber}`;
   const result = [question, correctAnswer];
+
   return result;
 }
 
