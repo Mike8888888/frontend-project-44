@@ -1,6 +1,27 @@
 import runGame from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import getCalculationResult from '../getCalculationResult.js';
+
+function getCalculationResult(firstNumber, secondNumber, operator) {
+  let answer;
+
+  switch (operator) {
+    case '+':
+      answer = firstNumber + secondNumber;
+      break;
+
+    case '*':
+      answer = firstNumber * secondNumber;
+      break;
+
+    case '-':
+      answer = firstNumber - secondNumber;
+      break;
+
+    default:
+      answer = `Unknown operator ${operator}`;
+  }
+  return answer;
+}
 
 const description = 'What is the result of the expression?';
 

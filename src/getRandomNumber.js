@@ -1,3 +1,3 @@
 import _ from 'lodash';
 
-export default (bottomEdge, topEdge) => _.random(bottomEdge, topEdge);
+export default (bottomEdge = 1, topEdge = 100) => _.random(bottomEdge, topEdge);

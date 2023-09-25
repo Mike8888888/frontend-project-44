@@ -1,13 +1,15 @@
 import runGame from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import isEven from '../isEven.js';
+
+function isEven(number) {
+  return number % 2 === 0;
+}
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function getRaundData() {
-  const randomNumber = getRandomNumber(0, 10);
-  const correctAnswer = isEven(randomNumber);
-  const question = randomNumber;
+  const question = getRandomNumber(1, 50);
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
   const result = [question, correctAnswer];
 
   return result;
